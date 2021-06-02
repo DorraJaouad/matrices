@@ -1,0 +1,25 @@
+import numpy as np
+import random
+#def main:
+n=int(input("insert the number of matrices"))
+big= {}
+for i in range(n):
+    print("insert the shape of nxn matrix number ",i+1," where n =")
+    x=int(input())
+    matrix=np.random.randint(low=0, high=100, size=(x,x))
+    big[i]=matrix
+
+file=open('C:\\Users\\User\\Desktop\\output.txt',"w")
+for i in big.values(): #only write the matrices
+    file.write(str(i))
+file.close()
+
+file=open('C:\\Users\\User\\Desktop\\output.txt','w')
+
+for i in big.values():#write the matrices with the determinants
+    file.write(str(i))
+    file.write('\n')
+    file.write("determinant= ")
+    file.write(str(np.linalg.det(i)))
+    file.write('\n')
+file.close()
